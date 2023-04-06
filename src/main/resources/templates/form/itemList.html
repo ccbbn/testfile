@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&display=swap" rel="stylesheet">
+
+
+
+
+
+
+        <link rel="stylesheet" href="../../static/CSS/index.css">
+        <link rel="stylesheet" href="../../static/CSS/itemList.css">
+        <title>NOMARGIN</title>
+    </head>
+    <body>
+        <div class="container" id="'wrapper">
+            <header>
+                <div class="logo"><a href="../../static/index.html">Nomarjin</a></div>
+                <div class="login-btn">Login</div>
+            </header>
+            <nav>
+                <ul class="nav-icon">
+                    <li id="top"><a href="#top">TOP</a></li>
+                    <li id="bottom"><a href="#bottom">BOTTOM</a></li>
+                    <li id="outer"><a href="#outer">OUTER</a></li>
+                </ul>
+            </nav>
+            <div class="list-title">TOP</div>
+            <div class="list-title">BOTTOM</div>
+            <div class="list-title">OUTER</div>
+            <section class="item-list">
+
+
+
+                <div>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>상품명</th>
+                            <th>가격</th>
+                            <th>수량</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!--      each : 반복분 -->
+                        <tr th:each="item : ${items}">
+                            <td><a href="product.html" th:href="@{/form/itemList/{itemId}(itemId=${item.itemId})}" th:text="${item.itemId}">회원id</a></td>
+                            <td><a href="product.html" th:href="@{|/basic/products/${item.itemId}|}" th:text="${item.itemId}">상품명</a></td>
+                            <td th:text="${item.price}">10000</td>
+                            <td th:text="${item.stock}">10</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+
+
+<!--                <article><a href="#"><img src="../../static/asset/045.jpg" alt=""><p class="item-name">제목</p><p class="item-info">검은 현금 50억</p></a></article>-->
+<!--                <article><a href="#"><img src="../../static/asset/045.jpg" alt=""><p class="item-name">제목</p><p class="item-info">세후 깨끗한 현금 150억</p></a></article>-->
+<!--                <article><a href="#"><img src="../../static/asset/045.jpg" alt=""><p class="item-name">제목</p><p class="item-info">세전 깨끗한 현금 100억</p></a></article>-->
+<!--                <article><a href="#"><img src="../../static/asset/045.jpg" alt=""><p class="item-name">제목</p><p class="item-info">세후 깨끗한 현금 200억</p></a></article>-->
+<!--                <article><a href="#"><img src="../../static/asset/045.jpg" alt=""><p class="item-name">제목</p><p class="item-info">세후 깨끗한 현금 250억</p></a></article>-->
+<!--                <article><a href="#"><img src="../../static/asset/045.jpg" alt=""><p class="item-name">제목</p><p class="item-info">세후 깨끗한 현금 300억</p></a></article>-->
+            </section>
+            <div th:if="${item.bottom}"></div>
+
+
+        </div>
+            <footer>
+                <ul class="company-info">
+                    <li>Nomarjin company</li>
+                    <li>서울 구로구 디지털로 34길 코오롱 싸이언스밸리 1차 4층 8강의실 구석</li>
+                    <li>김씨 권씨 이씨 임씨 최씨</li>
+                    <li>02-869-8301</li>
+                    <li>000-00-00000</li>
+                </ul>
+                <ul class="company-etc">
+                    <li>healuhen@gmail.com</li>
+                    <li><a href="https://programmers.co.kr/">사이트 바로가기</a></li>
+                </ul>
+            </footer>
+    </body>
+</html>
